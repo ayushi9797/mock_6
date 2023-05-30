@@ -8,12 +8,6 @@ const auth = require("./middleware/auth");
 const app = express();
 app.use("/", UserRouter);
 
-app.use('/', auth)
-app.use("/", flightRouter);
-app.use("/", bookingRouter)
-app.use(express.json());
-
-
 app.get("/", async (req, res) => {
   try {
     res.send(`<h1> AIR TICKET SYSTEM HOME ROUTER</h1>`);
@@ -24,6 +18,14 @@ app.get("/", async (req, res) => {
   }
 
 })
+
+app.use('/', auth)
+app.use("/", flightRouter);
+app.use("/", bookingRouter)
+app.use(express.json());
+
+
+
 
 
 // connection to server
